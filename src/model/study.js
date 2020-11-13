@@ -1,7 +1,8 @@
 import { model, Schema } from 'mongoose';
+import Subject from './subject';
 
 const StudySchema = new Schema({
-  subject: String,
+  subject: Subject,
   comment: String,
 });
 
