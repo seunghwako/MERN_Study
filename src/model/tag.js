@@ -1,7 +1,7 @@
 import { model, Schema } from 'mongoose';
 
 const TagSchema = new Schema({
-  tagName: String,
+  tagName: { type: String, unique: true, required: true },
 });
 
 const Tag = model('Tag', TagSchema);

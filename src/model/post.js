@@ -1,13 +1,12 @@
 import { model, Schema } from 'mongoose';
-import Tag from './tag';
 
 const PostSchema = new Schema(
   {
-    title: String,
+    title: { type: String, required: true },
     content: String,
     photo: String,
     like: Number,
-    hashtag: [Tag],
+    hashtag: { type: [Schema.Types.ObjectId], ref: 'Tag' },
   },
   {
     timestamps: {

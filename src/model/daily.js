@@ -3,7 +3,7 @@ import { model, Schema } from 'mongoose';
 const DailySchema = new Schema(
   {
     photo: String,
-    comment: String,
+    comment: { type: String, required: true },
   },
   {
     timestamps: {

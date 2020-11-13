@@ -1,10 +1,9 @@
 import { model, Schema } from 'mongoose';
-import Tag from './tag';
 
 const TravelSchema = new Schema({
   photo: String,
-  comment: String,
-  hashtag: [Tag],
+  comment: { type: String, required: true },
+  hashtag: { type: [Schema.Types.ObjectId], ref: 'Tag' },
 });
 
 const Travel = model('Travel', TravelSchema);

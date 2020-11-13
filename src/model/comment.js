@@ -1,15 +1,11 @@
 import { model, Schema } from 'mongoose';
-import User from './user';
-import Post from './post';
-const ObjectId = Schema.Types.ObjectId;
 
+// 비구조화 문법 사용 destructuring
 const CommentSchema = new Schema({
-  content: String,
-  author: User,
-  post: Post,
-  parent: {
-    type: ObjectId,
-  },
+  content: { type: String, required: true },
+  author: { type: Schema.Types.ObjectId, ref: 'User', unique: true, required: true },
+  post: { type: Schema.Types.ObjectId, ref: 'Post', unique: true, required: true },
+  parent: { type: Schema.Types.ObjectId, ref: 'Comment' },
 });
 
 const Comment = model('Comment', CommentSchema);
